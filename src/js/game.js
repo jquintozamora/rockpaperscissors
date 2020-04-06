@@ -11,6 +11,7 @@ export class Game {
 		this.winner = null;
 		this.home = home;
 		this.isHuman = isHuman;
+		this.timer = null;
 
 		this.playRound();
 	}
@@ -23,10 +24,15 @@ export class Game {
 				winner: this.winner,
 				onPickClick: (move) => () => this.userSetMove(move),
 				round: this.round,
-				onResetGameClick: () => this.home.restart()
+				onResetGameClick: this.resetGameHandler
 			}),
 			document.body
 		);
+	}
+
+	resetGameHandler() {
+		clearTimeout(this.timer);
+		this.home.restart();
 	}
 
 	firstMoveWin(m1, m2) {
@@ -75,13 +81,12 @@ export class Game {
 	checkResults() {
 		const winner = this.checkWinner();
 		if (winner) {
-            this.render();
-            this.winner = winner;
-            setTimeout(() => this.render(), WAIT_TIME_SEC);
-            
+			this.render();
+			this.winner = winner;
+			this.timer = setTimeout(() => this.render(), WAIT_TIME_SEC);
 		} else {
 			this.render();
-			setTimeout(() => this.playRound(), WAIT_TIME_SEC);
+			this.timer = setTimeout(() => this.playRound(), WAIT_TIME_SEC);
 		}
 	}
 
@@ -94,11 +99,11 @@ export class Game {
 		if (this.isHuman) {
 			this.player2.setMove();
 		} else {
-			setTimeout(() => {
-                this.player2.setMove();
-                this.player1.setMove();
-                this.checkResults();
-            }, WAIT_TIME_SEC);
+			this.timer = setTimeout(() => {
+				this.player2.setMove();
+				this.player1.setMove();
+				this.checkResults();
+			}, WAIT_TIME_SEC);
 		}
 	}
 }

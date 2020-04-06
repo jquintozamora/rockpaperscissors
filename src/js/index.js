@@ -32,7 +32,9 @@ function onKeyDown(event) {
 			break;
         }
         case KEYS.M: {
-            h.restart();
+            if (h.game) {
+                h.game.resetGameHandler();
+            }
             break;
         }
         case KEYS.R: {

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/preset-env": "7.6.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.5",
@@ -42,7 +42,7 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "breakpoint-sass": "^2.7.1",
-    "lit-html": "^1.2.1"
+    "breakpoint-sass": "2.7.1",
+    "lit-html": "1.2.1"
   }
 }

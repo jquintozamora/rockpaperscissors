@@ -1,9 +1,7 @@
-@import './style.css';
+@import '~breakpoint-sass';
+@import './breakpoints';
 
-body {
-	background-color: green;
+@import './common';
+@import './pages/welcome';
+@import './pages/play';
 
-	h1 {
-		color: white;
-	}
-}

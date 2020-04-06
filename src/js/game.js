@@ -12,7 +12,6 @@ export class Game {
 		this.home = home;
 		this.isHuman = isHuman;
 
-		this.render();
 		this.playRound();
 	}
 

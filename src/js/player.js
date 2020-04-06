@@ -1,10 +1,10 @@
 import { PLAYER_TYPES, MAX_POINTS, MOVES } from './constants';
 
 export class Player {
-	constructor(type, points = 0) {
-		this.type = type;
+	constructor(type) {
+		this.type = type || PLAYER_TYPES.COMPUTER;
 		this.title = type === PLAYER_TYPES.HUMAN ? 'Your' : 'Computer';
-		this.points = points;
+		this.points = 0;
 		this.move = null;
 	}
 
